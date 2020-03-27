@@ -1,0 +1,75 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CoronaVirus (COVID-19) Plugin\n"
+"POT-Creation-Date: 2020-03-23 15:02+0330\n"
+"PO-Revision-Date: 2020-03-23 15:02+0330\n"
+"Last-Translator: \n"
+"Language-Team: PBDP Co <info@pbdp.co>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: covid-19.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin.php:14
+msgid "Need Help?"
+msgstr ""
+
+#: admin.php:20
+msgid "Get Pro Version"
+msgstr ""
+
+#: admin.php:28
+msgid "Settings"
+msgstr ""
+
+#: admin.php:43
+msgid "Coronavirus COVID-19 Options"
+msgstr ""
+
+#: admin.php:44
+msgid ""
+"The plugin provided a shortcode <b>[COVID-19]</b> to display Live "
+"Statistics, you can use the shortcode in posts or pages and etc."
+msgstr ""
+
+#: admin.php:51
+msgid "Save Changes"
+msgstr ""
+
+#: covid-19.php:76
+msgid "Title:"
+msgstr ""
+
+#: covid-19.php:80
+msgid "Country Name:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "CoronaVirus (COVID-19) Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://salamzadeh.net/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This is a very simple plugin with a sole purpose of allowing website owners "
+"a quick way to show COVID-19 Live Statistics in your website, This plugin "
+"provided a shortcode [COVID-19] to display Live Statistics, you can use the "
+"shortcode in posts or pages ."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sasan Salamzadeh"
+msgstr ""

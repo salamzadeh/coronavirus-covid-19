@@ -1,0 +1,27 @@
+/*
+	Admin Panel Styles
+*/
+body {
+    background: #fff;
+}
+.notify {
+    display: inline-block;
+    padding: 1rem;
+    background: #ffeed2;
+    border: 1px solid #f8daa9;
+    margin: 1rem 0;
+    border-radius: 3px;
+}
+.covid_wrap {
+	border: 1px solid silver;
+    padding: 20px;
+	border-radius: 10px;
+
+}
+.postbox .inside h2, .covid_wrap [class$=icon32]+h2, .covid_wrap h1, .covid_wrap>h2:first-child {
+    border-bottom: 1px solid silver;
+    margin: -20px;
+    background: #923737;
+    padding: 20px;
+    color: white;
+}

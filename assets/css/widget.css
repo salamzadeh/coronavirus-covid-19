@@ -1,0 +1,183 @@
+/* Widget Themes */
+.covid19-item {
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 5px #dadada;
+    background-image: url(../img/covid19.png);
+    background-repeat: no-repeat;
+    background-position: top 10px right 10px;
+    background-blend-mode: overlay;
+    background-size: 80px;
+}
+
+.covid19-row {
+    display: flex;
+}
+
+.covid19-col {
+    padding-right: 30px;
+	min-width:33%;
+}
+
+.covid19-col.covid19-recovered {
+    color: #32bb32;
+    padding-right: 0;
+}
+
+.covid19-col.covid19-confirmed {
+    color: #ff2c2c;
+}
+
+.covid19-col.covid19-deaths {
+    color: #494949;
+}
+
+.covid19-value {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 25px;
+}
+
+.covid19-label {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h4.covid19-title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 25px;
+    line-height: 28px;
+}
+
+/* Theme 2 */
+.covid19-item.covid19-theme-2 {
+    text-align: center;
+    padding: 25px;
+    background-image: none;
+}
+
+.covid19-item.covid19-theme-2 .covid19-col {
+    padding-right: 0;
+    margin: 0px 15px;
+}
+
+.covid19-item.covid19-theme-2 .covid19-row {
+    justify-content: center;
+}
+
+.covid19-item.covid19-theme-2 h4.covid19-title {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.covid19-item.covid19-theme-2 .covid19-value {
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.covid19-item.covid19-theme-2 .covid19-col.covid19-recovered {
+    color: #16D39A!important;
+}
+
+.covid19-item.covid19-theme-2 .covid19-col.covid19-confirmed {
+    color: #FF7588!important;
+}
+
+/* Theme 3 */
+.covid19-item.covid19-theme-3 .covid19-col {
+    border-right: 1px solid #ddd;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.covid19-item.covid19-theme-3 .covid19-col.covid19-recovered {
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.covid19-item.covid19-theme-3 .covid19-label {
+    color: #868686;
+}
+
+.covid19-item.covid19-theme-3 .covid19-row {
+    justify-content: center;
+}
+
+.covid19-item.covid19-theme-3 {
+    text-align: center;
+    padding: 25px;
+    background-position: top 10px center;
+}
+
+.covid19-item.covid19-theme-3 h4.covid19-title {
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
+.covid19-item.covid19-theme-3 .covid19-col.covid19-confirmed {
+    padding-left: 0;
+}
+
+/* Theme 4 */
+.covid19-item.covid19-theme-4 .covid19-col {
+    border-right: 1px solid #ffffff40;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.covid19-item.covid19-theme-4 .covid19-col.covid19-recovered {
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.covid19-item.covid19-theme-4 .covid19-col {
+    color: #ffffff59;
+	background: #00000073;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.covid19-item.covid19-theme-4 .covid19-row {
+    justify-content: center;
+}
+
+.covid19-item.covid19-theme-4 {
+    text-align: center;
+    padding: 25px;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+}
+
+.covid19-item.covid19-theme-4 h4.covid19-title {
+    margin-bottom: 20px;
+    color: #ffffffd1;
+}
+
+.covid19-item.covid19-theme-4 .covid19-col.covid19-confirmed {
+    padding-left: 0;
+}
+
+.covid19-item.covid19-theme-4 .covid19-value {
+    color: #FFF;
+}
+/* Dark Mode */
+.darkmode {
+    background-color: #21252b;
+}
+
+.darkmode h4 {
+    color: white;
+}
+
+.darkmode.covid19-item.covid19-theme-3 .covid19-label {
+    color: white;
+}
