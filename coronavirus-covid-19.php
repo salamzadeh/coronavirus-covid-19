@@ -2,8 +2,8 @@
 /*
   Plugin Name: CoronaVirus (COVID-19) Plugin
   Plugin URI: https://salamzadeh.net/plugins/covid-19
-  Description: This is a very simple plugin with a sole purpose of allowing website owners a quick way to show COVID-19 Live Statistics in your website, This plugin provided a shortcode [COVID-19] to display Live Statistics, you can use the shortcode in posts or pages . 
-  Version: 1.1.0
+  Description: This is a very simple plugin with a sole purpose of allowing website owners a quick way to show COVID-19 Live Statistics in your website, This plugin provided a shortcode [COVID-19] to display Live Statistics,[COVID-19-WIDGET] to display any country Live Statistics, you can use the shortcode in posts or pages . 
+  Version: 1.3.0
   Author: Sasan Salamzadeh
   Text Domain: covid-19
   Author URI: https://salamzadeh.net/
@@ -11,7 +11,7 @@
 
 define('COVID19_PLUGIN_NAME',plugin_basename(__FILE__));
 define('COVID19_PLUGIN_DIR',__DIR__);
-define('COVID19_VERSION','1.1.0');
+define('COVID19_VERSION','1.3.0');
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -41,11 +41,11 @@ function covid19_load_map_styles()
     wp_enqueue_style('covid_19_styles', $dir . 'assets/css/styles.css', array(), COVID19_VERSION, 'all');
     wp_enqueue_style('covid_19_custom', $dir . 'assets/css/custom.css', array(), COVID19_VERSION, 'all');
 	wp_enqueue_script( 'covid_19_app', $dir .'assets/js/scripts.js', array(), COVID19_VERSION );
-
+	$all_options = get_option( 'covid19_options' );
 	$covid_style = '<style>';
-	if($all_options['cov_countries_hide']==!$checked) $covid_style ='body .info{display: none} ';
-	if($all_options['cov_map_hide']==!$checked) $covid_style.= ' body .canvas.canvas--visible svg,body .legend{display: none}body .canvas{padding: 0rem 1rem 1rem} ';
-	if($all_options['cov_map_hide']==!$checked) $covid_style.= ' body .canvas.canvas--visible svg,body .legend{display: none}body .canvas{padding: 0rem 1rem 1rem} ';
+	if($all_options['cov_countries_hide']==!$checked) $covid_style .='body .info{display: none} ';
+	if($all_options['cov_map_hide']==!$checked) $covid_style.= ' body .canvas_map.canvis svg,body .legend{display: none}body .canvas_map{padding: 0rem 1rem 1rem} ';
+	if($all_options['cov_map_hide']==!$checked) $covid_style.= ' body .canvas_map.canvis svg,body .legend{display: none}body .canvas_map{padding: 0rem 1rem 1rem} ';
 	$covid_style .= $all_options['cov_css'];
 	$covid_style .='</style>';
 	echo $covid_style;
@@ -59,7 +59,8 @@ function covid19_load_map_styles()
 function covid19_widget_styles()
 {
 	$dir = plugin_dir_url(__FILE__);
-	wp_enqueue_style('covid_19_styles', $dir . 'assets/css/widget.css', array(), COVID19_VERSION, 'all');
+	wp_enqueue_script( 'covid_19_app', $dir .'assets/js/scripts.js', array(), COVID19_VERSION );
+	wp_enqueue_style('covid_19_widget_styles', $dir . 'assets/css/widget.css', array(), COVID19_VERSION, 'all');
 }
 //add_action('wp_enqueue_scripts', 'covid19_load_map_styles');
 
@@ -98,8 +99,8 @@ function covid19_widget_shortcode($atts){
 		'theme' => 'default'
 	), $atts );
 	if($params["country"] != "Total" && ! isset($atts["title"])) $params["title"] = $params["country"]; 
-	$data = covid19_get_api_data($params);
-	
+	// $data = covid19_get_api_data($params);
+	$data=[];
 	ob_start();
 	// get the shortcode detail
 	include(dirname(__FILE__).'/inc/widget.php');
@@ -114,10 +115,11 @@ add_shortcode('COVID-19-WIDGET', 'covid19_widget_shortcode');
 /**
  * Get Widget Data From New API
  *
- * @since 1.1.0
+ * @since 1.1.1
  */
 function covid19_get_api_data($params) {
-	$response = file_get_contents('https://salamzadeh.net/api/get_covid19_widget?country='.$params["country"]);
-	$response = json_decode($response);
-	return $response;
+	$url = 'https://salamzadeh.net/api/get_covid19_widget?country='.urlencode($params["country"]);
+    $response = wp_remote_get($url);
+	$body = wp_remote_retrieve_body( $response );
+	return json_decode($body);
 }

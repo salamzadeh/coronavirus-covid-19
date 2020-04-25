@@ -82,6 +82,24 @@ function get_covid19_option_settings() {
  
 	add_settings_section( 'covid_section_2', 'Customization', '', $covid_page );
 
+	
+	$covid_field_params = array(
+		'type'      => 'text', // type
+		'id'        => 'cov_scountry',
+		'value'        => 'Total',
+		'desc'      => 'Default: World Statistics you can enter Your Country Like Iran,US,etc.', // description
+		'label_for' => 'cov_scountry'
+	);
+	add_settings_field( 'my_text_field2', 'Selected Country', 'get_covid19_option_display_settings', 
+	$covid_page, 'covid_section_2', $covid_field_params );
+	
+	$covid_field_params = array(
+		'type'      => 'checkbox',
+		'id'        => 'cov_map_top_widget_hide',
+		'desc'      => 'Hide'
+	);
+	add_settings_field( 'cov_map_top_widget_hide_field', 'Top Map Widget', 'get_covid19_option_display_settings', $covid_page, 'covid_section_2', $covid_field_params );
+	
 	$covid_field_params = array(
 		'type'      => 'checkbox',
 		'id'        => 'cov_countries_hide',
@@ -120,39 +138,39 @@ function get_covid19_option_display_settings($args) {
 	extract( $args );
 	$option_name = 'covid19_options';
  
-	$o = get_option( $option_name );
+	$opt = get_option( $option_name );
  
 	switch ( $type ) {  
 		case 'text':  
-			$o[$id] = esc_attr( stripslashes($o[$id]) );
-			echo "<input class='regular-text' type='text' id='$id' name='" . $option_name . "[$id]' value='$o[$id]' />";  
+			$opt[$id] = esc_attr( stripslashes($opt[$id]) );
+			echo "<input class='regular-text' type='text' id='$id' name='" . $option_name . "[$id]' value='$opt[$id]' />";  
 			echo ($desc != '') ? "<br /><span class='description'>$desc</span>" : "";  
 		break;
 		case 'textarea':  
-			$o[$id] = esc_attr( stripslashes($o[$id]) );
-			echo "<textarea class='code regular-text' cols='12' rows='5' type='text' id='$id' name='" . $option_name . "[$id]'>$o[$id]</textarea>";  
+			$opt[$id] = esc_attr( stripslashes($opt[$id]) );
+			echo "<textarea class='code regular-text' cols='12' rows='5' type='text' id='$id' name='" . $option_name . "[$id]'>$opt[$id]</textarea>";  
 			echo ($desc != '') ? "<br /><span class='description'>$desc</span>" : "";  
 		break;
 		case 'checkbox':
-			$checked = ($o[$id] == 'on') ? " checked='checked'" :  '';  
+			$checked = ($opt[$id] == 'on') ? " checked='checked'" :  '';  
 			echo "<label><input type='checkbox' id='$id' name='" . $option_name . "[$id]' $checked /> ";  
 			echo ($desc != '') ? $desc : "";
 			echo "</label>";  
 		break;
 		case 'select':
 			echo "<select id='$id' name='" . $option_name . "[$id]'>";
-			foreach($vals as $v=>$l){
-				$selected = ($o[$id] == $v) ? "selected='selected'" : '';  
-				echo "<option value='$v' $selected>$l</option>";
+			foreach($vals as $value=>$lable){
+				$selected = ($opt[$id] == $value) ? "selected='selected'" : '';  
+				echo "<option value='$value' $selected>$lable</option>";
 			}
 			echo ($desc != '') ? $desc : "";
 			echo "</select>";  
 		break;
 		case 'radio':
 			echo "<fieldset>";
-			foreach($vals as $v=>$l){
-				$checked = ($o[$id] == $v) ? "checked='checked'" : '';  
-				echo "<label><input type='radio' name='" . $option_name . "[$id]' value='$v' $checked />$l</label><br />";
+			foreach($vals as $value=>$lable){
+				$checked = ($opt[$id] == $value) ? "checked='checked'" : '';  
+				echo "<label><input type='radio' name='" . $option_name . "[$id]' value='$value' $checked />$lable</label><br />";
 			}
 			echo "</fieldset>";  
 		break; 
@@ -163,8 +181,8 @@ function get_covid19_option_display_settings($args) {
  * Fields Validator
  */
 function covid19_validate_fields_settings($input) {
-	foreach($input as $k => $v) {
-		$valid_input[$k] = trim($v);
+	foreach($input as $key => $value) {
+		$valid_input[$key] = sanitize_text_field(trim($value));
 	}
 	return $valid_input;
 }

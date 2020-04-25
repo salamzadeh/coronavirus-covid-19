@@ -1,6 +1,6 @@
 === Coronavirus COVID-19  - Live Map WordPress Plugin ===
 Contributors: Salamzadeh
-Donate link: https://salamzadeh.net/donate
+Donate link: https://yekpay.me/en/salamzadeh
 Tags: corona, coronavirus, covid-19, ncov, virus, chart, covid, data, disease, infection, outbreak, pandemic, prediction,
 Requires at least: 3.0.1
 Tested up to: 5.2
@@ -9,10 +9,13 @@ PHP Version: 5.6 or higher
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 The plugin provided a shortcode [COVID-19] to display Live Map and Statistics, you can use the shortcode in posts or pages.
-Version: 1.1.0
+Version: 1.3.0
 == Description ==
 
-Coronavirus COVID-19 Plugin provided a shortcode [COVID-19] to display Live Map and Statistics, you can use the shortcode in posts or pages.
+Coronavirus COVID-19 Plugin provided a shortcode [COVID-19] to display Live Map and Statistics,[COVID-19-WIDGET] to display Live statistics, you can use the shortcode in posts or pages.
+You can disable or enable all sections from the Settings section, Also select the country you want to display statistics on top of map.
+if you like it,buy me a coffee ;-)
+https://yekpay.me/en/salamzadeh
 
 == 3RD PARTY OR EXTERNAL SERVICE DISCLAIMER ==
 
@@ -24,13 +27,17 @@ The Widget ShortCode is Added with 5 Template and Darkmode style.
 *  [COVID-19]
 *  [COVID-19-WIDGET]
 You can use darkmode in (theme-1 theme-2 theme-3 and default styles)
-` [COVID-19-WIDGET darkmode="true"] `
+`[COVID-19-WIDGET darkmode="true"]`
 with country parameter you can get and show a specific country statistics 
-` [COVID-19-WIDGET country="Iran" darkmode="true"] `
+`[COVID-19-WIDGET country="Iran" darkmode="true"]`
 you can set the theme of widget via theme parameter ( use 1,2,3,4,5)
-` [COVID-19-WIDGET country="Iran" theme="1"] `
+`[COVID-19-WIDGET country="Iran" theme="1"]`
 and also you can use title,label_confirmed,label_deaths,label_recovered for set this attribute for any of widgets.
-` [COVID-19-WIDGET country="Total" theme="2" darkmode="true" title="Global"] `
+`[COVID-19-WIDGET country="Total" theme="2" darkmode="true" title="Global"]`
+
+** Country List and Documentation **
+You can see the list of countries in bellow link [https://salamzadeh.net/plugins/covid-19/coronavirus-documentation](https://salamzadeh.net/plugins/covid-19/coronavirus-documentation "https://salamzadeh.net/plugins/covid-19/coronavirus-documentation"). I'm preparing full documentation for this plugin
+
 
 == Screenshots ==
 1. Only Live Map
@@ -73,6 +80,20 @@ Or
 == Changelog ==
 
 Expanded list can be found at: http://salamzadeh.net/plugins/covid-19/release-history
+= 1.3.0- =
+* Added lasy load to widgets
+* Fix hide country lists issue
+* Fix some issues in get data
+
+
+= 1.2.- =
+* Added new options in admin section
+* Added new widget in live map view
+* Added custom country to show statistics on map
+
+
+= 1.1.1 =
+* Fix widget get data warning
 
 = 1.1.0 =
 * Improve API ( Update every 10 minutes )
